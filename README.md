@@ -38,7 +38,7 @@ SUPER includes both. A service calling the REST endpoints needs `DA QUERY` on it
 
 ## Install
 
-Download the latest `.app` from [Releases](https://github.com/garethcheyne/Dynamic-Assist/releases?q=companion) and upload it in Business Central: **Extension Management** → **Manage** → **Upload Extension**. Then give users the **DA QUERY** permission set, alongside their normal permissions, and admins **DA QUERY ADMIN** to read the query log. Each release lists the steps.
+Download the latest companion zip from [Releases](https://github.com/garethcheyne/Dynamic-Assist/releases?q=companion), unzip it and upload the `.app` in Business Central: **Extension Management** → **Manage** → **Upload Extension**. Then give users the **DA QUERY** permission set, alongside their normal permissions, and admins **DA QUERY ADMIN** to read the query log. Each release lists the steps.
 
 ### From source (development)
 

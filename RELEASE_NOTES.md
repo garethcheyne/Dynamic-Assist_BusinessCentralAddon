@@ -6,9 +6,9 @@ The Business Central app that goes with the [Dynamic Assist](https://github.com/
 
 You need permission to manage extensions in the environment (for example **D365 EXTENSION MGT** or **SUPER**). Try it in a sandbox first.
 
-1. Download **{{FILE}}** below.
+1. Download **{{ZIP}}** below and unzip it. (GitHub doesn't allow `.app` files as downloads, so the app comes zipped.)
 2. In Business Central, search for **Extension Management**, then choose **Manage** → **Upload Extension**.
-3. Pick the file, leave **Deploy to** on **Current version**, accept the terms and choose **Deploy**.
+3. Pick **{{FILE}}**, leave **Deploy to** on **Current version**, accept the terms and choose **Deploy**.
 4. Check progress under **Manage** → **Deployment Status**. It's done when the app shows as installed on the Extension Management page.
 5. Give users the **DA QUERY** permission set, alongside their normal permissions: open **Users**, pick a user and add it under **User Permission Sets** (or add it to a security group's permissions). Give admins **DA QUERY ADMIN** too, to read and clear the query log.
 
