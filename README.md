@@ -54,7 +54,7 @@ To build without VS Code: `alc.exe /project:. /packagecachepath:.alpackages /out
 
 ## Use
 
-In the Dynamic Assist side panel on Business Central, click the database icon in the environment bar, or **Query this table** on the Page tab. If the query builder can't find the companion, it offers to open the **Dynamic Assist Query** page. You can also search for that page (Alt+Q). The builder opens over it by itself.
+In the Dynamic Assist side panel on Business Central, click the database icon in the environment bar, or **Query this table** on the Page tab. The builder opens over the page you're on and reaches the companion through a tab on the **Dynamic Assist Query** page of the same environment and company, opening one in the background the first time. Opening that page yourself (Alt+Q, "Dynamic Assist Query") also opens the builder over it.
 
 ## Take a query elsewhere
 

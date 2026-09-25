@@ -16,7 +16,7 @@ To update, upload the newer file the same way. Data (the query log) is kept.
 
 ## Use
 
-Install the Dynamic Assist browser extension, open Business Central and click the database icon in the side panel, or **Query this table** on its Page tab. The builder opens the **Dynamic Assist Query** page by itself.
+Install the Dynamic Assist browser extension, open Business Central and click the database icon in the side panel, or **Query this table** on its Page tab. The builder opens over the page you're on; the first time in a company it opens the **Dynamic Assist Query** page in a background tab to reach the app.
 
 Details: [bc-companion README](https://github.com/garethcheyne/Dynamic-Assist/tree/main/bc-companion).
 
