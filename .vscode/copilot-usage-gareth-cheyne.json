@@ -1,0 +1,253 @@
+{
+  "id": "467584c9-8784-48bf-9ebc-9962e849a80c",
+  "project": "garethcheyne/Dynamic-Assist",
+  "tags": [],
+  "costCenter": "",
+  "user": "Gareth Cheyne",
+  "entries": [
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 995,
+      "outputTokens": 23,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:03:25.235Z",
+      "totalTokens": 1018,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 995,
+      "outputTokens": 23,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:03:25.235Z",
+      "totalTokens": 1018,
+      "aiCredits": 0
+    },
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 1001,
+      "outputTokens": 25,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:03:58.585Z",
+      "totalTokens": 1026,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 1001,
+      "outputTokens": 25,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:03:58.586Z",
+      "totalTokens": 1026,
+      "aiCredits": 0
+    },
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 1001,
+      "outputTokens": 13,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:03:58.586Z",
+      "totalTokens": 1014,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 1001,
+      "outputTokens": 13,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:03:58.587Z",
+      "totalTokens": 1014,
+      "aiCredits": 0
+    },
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 998,
+      "outputTokens": 25,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:04:14.400Z",
+      "totalTokens": 1023,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 998,
+      "outputTokens": 25,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:04:14.401Z",
+      "totalTokens": 1023,
+      "aiCredits": 0
+    },
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 998,
+      "outputTokens": 16,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:04:14.401Z",
+      "totalTokens": 1014,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 998,
+      "outputTokens": 16,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:04:14.402Z",
+      "totalTokens": 1014,
+      "aiCredits": 0
+    },
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 1001,
+      "outputTokens": 13,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:04:31.150Z",
+      "totalTokens": 1014,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 1001,
+      "outputTokens": 13,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:04:31.151Z",
+      "totalTokens": 1014,
+      "aiCredits": 0
+    },
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 1556,
+      "outputTokens": 16,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:06:13.459Z",
+      "totalTokens": 1572,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 1556,
+      "outputTokens": 16,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:06:13.460Z",
+      "totalTokens": 1572,
+      "aiCredits": 0
+    },
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 1556,
+      "outputTokens": 16,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:06:13.460Z",
+      "totalTokens": 1572,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 1556,
+      "outputTokens": 16,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:06:13.461Z",
+      "totalTokens": 1572,
+      "aiCredits": 0
+    },
+    {
+      "model": "copilot-nes-lysithea-24",
+      "inputTokens": 1556,
+      "outputTokens": 16,
+      "cachedTokens": 0,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:06:13.461Z",
+      "totalTokens": 1572,
+      "aiCredits": 0
+    },
+    {
+      "model": "unknown",
+      "inputTokens": 1556,
+      "outputTokens": 16,
+      "cachedTokens": 1152,
+      "billable": false,
+      "requestType": "inline",
+      "timestamp": "2026-09-25T22:06:13.462Z",
+      "totalTokens": 2724,
+      "aiCredits": 0
+    }
+  ],
+  "summary": {
+    "totalInputTokens": 21324,
+    "totalOutputTokens": 326,
+    "totalCachedTokens": 1152,
+    "totalTokens": 22802,
+    "totalAiCredits": 0,
+    "totalRequests": 18,
+    "billableRequests": 0,
+    "billableTokens": 0,
+    "nonBillableTokens": 22802,
+    "byModel": {
+      "copilot-nes-lysithea-24": {
+        "inputTokens": 10662,
+        "outputTokens": 163,
+        "cachedTokens": 0,
+        "aiCredits": 0,
+        "requests": 9
+      },
+      "unknown": {
+        "inputTokens": 10662,
+        "outputTokens": 163,
+        "cachedTokens": 1152,
+        "aiCredits": 0,
+        "requests": 9
+      }
+    },
+    "byDay": {
+      "2026-09-25": {
+        "inputTokens": 21324,
+        "outputTokens": 326,
+        "cachedTokens": 1152,
+        "aiCredits": 0,
+        "requests": 18
+      }
+    },
+    "byType": {
+      "inline": {
+        "inputTokens": 21324,
+        "outputTokens": 326,
+        "cachedTokens": 1152,
+        "aiCredits": 0,
+        "requests": 18,
+        "billable": false
+      }
+    }
+  }
+}

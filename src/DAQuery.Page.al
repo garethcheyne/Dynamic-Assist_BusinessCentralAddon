@@ -6,7 +6,7 @@
 page 77500 "DA Query"
 {
     Caption = 'Dynamic Assist Query';
-    PageType = Card;
+    PageType = StandardDialog;
     ApplicationArea = All;
     UsageCategory = Tasks;
     Editable = false;
