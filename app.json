@@ -1,0 +1,32 @@
+{
+  "id": "cf78495c-3924-4d64-8c6c-63e42e68efbb",
+  "name": "Dynamic Assist Companion",
+  "publisher": "ERR403",
+  "version": "2026.9.24.11",
+  "brief": "Lets the Dynamic Assist browser extension query any table you can read, read-only.",
+  "description": "The companion to the Dynamic Assist browser extension. It adds one page, Dynamic Assist Query, that the extension's query builder talks to: it lists tables and fields and runs read-only queries (filters, sort, row limit) as the signed-in user. Your permissions and security filters apply; nothing is written.",
+  "privacyStatement": "https://github.com/garethcheyne/Dynamic-Assist/blob/main/store/privacy/privacy-policy.md",
+  "EULA": "",
+  "help": "https://github.com/garethcheyne/Dynamic-Assist/tree/main/bc-companion",
+  "url": "https://github.com/garethcheyne/Dynamic-Assist",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "25.0.0.0",
+  "idRanges": [
+    {
+      "from": 77500,
+      "to": 77509
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "14.0",
+  "target": "Cloud",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
