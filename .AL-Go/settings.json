@@ -1,7 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/AL-Go-Actions/v9.2/.Modules/settings.schema.json",
   "country": "us",
-  "appFolders": [],
+  "appFolders": [
+    "DynamicAssistCompanion"
+  ],
   "testFolders": [],
-  "bcptTestFolders": []
+  "bcptTestFolders": [],
+  "useCompilerFolder": true,
+  "doNotPublishApps": true,
+  "doNotRunTests": true,
+  "enableCodeCop": true,
+  "enableUICop": true,
+  "versioningStrategy": 3
 }

@@ -21,8 +21,8 @@
   var LINKS = {
     chrome: "",
     edge: "",
-    source: "https://github.com/garethcheyne/Dynamic-Assist",
-    help: "https://github.com/garethcheyne/Dynamic-Assist/tree/main/bc-companion",
+    source: "https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon",
+    help: "https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon",
   }
 
   var TAG = "dynamic-assist"

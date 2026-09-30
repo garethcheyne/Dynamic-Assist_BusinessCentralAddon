@@ -1,6 +1,9 @@
 {
     "folders": [
         {
+            "path": "DynamicAssistCompanion"
+        },
+        {
             "path": ".AL-Go"
         }
     ],
