@@ -11,5 +11,6 @@
   "doNotRunTests": true,
   "enableCodeCop": true,
   "enableUICop": true,
-  "versioningStrategy": 3
+  "versioningStrategy": 3,
+  "repoVersion": "2026.9.30"
 }
