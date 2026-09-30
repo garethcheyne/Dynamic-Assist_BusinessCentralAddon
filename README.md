@@ -8,7 +8,7 @@ Business Central has no API for reading an arbitrary table: the standard APIs on
 
 - **Read-only.** It lists tables and fields, then reads records. It never changes your data; the only thing it writes is its own query log.
 - **Your permissions.** Reads go through `RecordRef` as you. A table you can't read gives an error, and security filters are applied: you only get the rows you're allowed to see.
-- **No new endpoints.** There are no API pages or web services. It only answers the browser tab that has the page open, from Business Central's own origin.
+- **Endpoints are opt-in or read-only.** The query builder only answers the browser tab that has the page open, from Business Central's own origin. The REST endpoints below are read-only, run as the caller, and need the DA QUERY permission set; the query web service is also off until an admin publishes it.
 
 | Object | ID | What it is |
 | --- | --- | --- |
@@ -16,6 +16,7 @@ Business Central has no API for reading an arbitrary table: the standard APIs on
 | Codeunit `DA Query Join` | 77501 | One join: looks up the related record through a lookup field |
 | Codeunit `DA Query API` | 77502 | The same engine as a web service, for other services (opt-in, see below) |
 | Page `DA Query Rows API` | 77501 | The same over GET: `…/api/err403/dynamicAssist/v1.0/…/queryRows` |
+| Page `DA Coupling API` | 77503 | Dataverse couplings (CRM Integration Record) over GET: `…/api/err403/dynamicassist/v1.0/…/couplings` |
 | Table `DA Query Row` | 77500 | Temporary: the GET endpoint's result rows, never stored |
 | Table `DA Query Log`, page `DA Query Log` | 77501, 77502 | Who queried what, when, how long, how many rows, and any error |
 | Codeunit `DA Query Log Writer` | 77503 | Writes a log entry without ever breaking the query |
@@ -25,7 +26,7 @@ Business Central has no API for reading an arbitrary table: the standard APIs on
 | Control add-in `DA Bridge` | | Passes messages between the extension and AL |
 | Permission set `DA QUERY` | 77500 | Lets a user open the page. It grants no business data |
 
-Publisher `ERR403`, ID range 77500–77509, platform 25.0 and later (BC 2024 wave 2+).
+Publisher `ERR403`, ID range 77500–77509, platform 25.0 and later (BC 2024 wave 2+). It depends on the Base Application (25.0 or later), for the couplings endpoint's integration tables.
 
 ## Permissions
 
@@ -50,11 +51,37 @@ To build without VS Code: `alc.exe /project:. /packagecachepath:.alpackages /out
 
 ### Releases
 
-[.github/workflows/bc-companion.yml](../.github/workflows/bc-companion.yml) compiles the app on every change here, with no Business Central environment: the compiler comes from nuget.org and the System symbols from Microsoft's public symbols feed. To publish a release, bump `version` in `app.json`, commit, then push a tag `companion-v<version>` or run the workflow by hand with **Publish a release** ticked. The release text is [RELEASE_NOTES.md](RELEASE_NOTES.md).
+[.github/workflows/bc-companion.yml](../.github/workflows/bc-companion.yml) compiles the app on every change here, with no Business Central environment: the compiler comes from nuget.org and the System and Base Application symbols from Microsoft's public symbols feed. To publish a release, bump `version` in `app.json` and push to `main`: when the build succeeds and that version hasn't been released, it's published as `companion-v<version>` and marked the latest release. Pushes that don't change the version release nothing. (A `companion-v<version>` tag, or running the workflow by hand with **Publish a release** ticked, also works.) The release text is [RELEASE_NOTES.md](RELEASE_NOTES.md). Nothing is built or kept locally: download a release, or the build's artifact from the Actions run.
 
 ## Use
 
 In the Dynamic Assist side panel on Business Central, click the database icon in the environment bar, or **Query this table** on the Page tab. The builder opens over the page you're on and reaches the companion through a tab on the **Dynamic Assist Query** page of the same environment and company, opening one in the background the first time. Opening that page yourself (Alt+Q, "Dynamic Assist Query") also opens the builder over it.
+
+## Couplings (Dataverse integration records)
+
+`DA Coupling API` shows Business Central's side of the Dataverse integration: which records are coupled to which Dataverse rows (CRM Integration Record, table 5331), with each coupled record's table, primary key, the page to open it on, and when it last synced.
+
+```http
+GET https://api.businesscentral.dynamics.com/v2.0/{tenant}/{environment}/api/err403/dynamicassist/v1.0/companies({companyId})/couplings?$filter=crmId eq '{Dataverse row ID}'
+GET …/couplings?$filter=integrationId eq '{Business Central record SystemId}'
+GET …/couplings({id})
+```
+
+| Field | What it is |
+| --- | --- |
+| `id` | The integration record's SystemId (the key) |
+| `crmId` | The Dataverse row's ID, as text (lowercase, no braces) |
+| `integrationId` | The Business Central record's SystemId, as text |
+| `tableId`, `tableCaption` | The Business Central table |
+| `recordKey` | The record's primary key values, such as `10000` or `Order · 1001` |
+| `recordFilter` | The same as a web client filter: `'No.' IS '10000'` (use it with `&page={pageId}&filter=`) |
+| `pageId` | The page to open it on: the table mapping's record page, else the table's drill-down or lookup page |
+| `recordExists` | False when the record is gone, or you can't read its table |
+| `skipped`, `lastSynchModifiedOn`, `lastSynchCrmModifiedOn` | Sync state, as the integration keeps it |
+
+Filter on `crmId` or `integrationId`, or get one by `id`; without a filter it pages through every coupling in the company. It's read-only, runs as the caller, and needs DA QUERY plus read permission on the integration tables and the coupled tables. Nothing needs publishing: API pages are available as soon as the app is installed.
+
+**As a Dataverse virtual table.** `crmId` and `integrationId` are text, not GUIDs: the Business Central Virtual Table app drops GUID fields other than the key, and Dataverse needs to filter on them. After updating the app, **Refresh** the table under Available Tables so Dataverse picks up the columns. Its identifiers are lowercase and its key is one GUID (the integration record's SystemId), which the Virtual Table app needs, so with that app installed it's listed under **Available Business Central Tables** (in the Business Central Configuration app). Make it visible and Dataverse can read couplings like any table: no Business Central tab, no token.
 
 ## Take a query elsewhere
 

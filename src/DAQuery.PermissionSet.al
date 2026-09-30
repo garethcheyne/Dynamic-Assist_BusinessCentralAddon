@@ -16,6 +16,8 @@ permissionset 77500 "DA QUERY"
         page "DA Query" = X,
         page "DA Query Rows API" = X,
         table "DA Query Row" = X,
+        page "DA Coupling API" = X,
+        table "DA Coupling" = X,
         codeunit "DA Query Log Writer" = X,
         tabledata "DA Query Log" = I,
         tabledata "Table Metadata" = R,
