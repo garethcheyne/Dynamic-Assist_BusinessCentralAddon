@@ -31,7 +31,7 @@ Business Central has no API for reading an arbitrary table: the standard APIs on
 | Control add-in `DA Bridge` | | Passes messages between the extension and AL |
 | Permission set `DA QUERY` | 77500 | Lets a user open the page. It grants no business data |
 
-Publisher `ERR403`, ID range 77500–77509, platform 25.0 and later (BC 2024 wave 2+). It depends on the Base Application (25.0 or later), for the couplings endpoint's integration tables.
+Publisher `err403.com`, ID range 77500–77509, platform 25.0 and later (BC 2024 wave 2+). It depends on the Base Application (25.0 or later), for the couplings endpoint's integration tables.
 
 ## Permissions
 
