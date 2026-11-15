@@ -7,6 +7,10 @@ A small Business Central extension that lets the Dynamic Assist browser extensio
 - **Docs:** the [companion app page](https://dynamicassist.err403.com/docs/companion-app/) on the Dynamic Assist website
 - **Ideas and problems:** the [feedback page](https://dynamicassist.err403.com/feedback/?product=companion), or an [issue](https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon/issues) here
 
+Dynamic Assist is free. If it saves you time, you can buy me a coffee:
+
+<a href="https://buymeacoffee.com/acejvszkeo"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" height="40"></a>
+
 Business Central has no API for reading an arbitrary table: the standard APIs only cover API pages and queries. This app adds one page, **Dynamic Assist Query**, that answers the query builder from inside your own web client session.
 
 ## What it does and doesn't do
