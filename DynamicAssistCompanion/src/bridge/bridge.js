@@ -22,7 +22,9 @@
       "https://chromewebstore.google.com/detail/dynamic-assist/kdjmihadioacnbabibfljbpbkclcjhbf",
     edge: "https://microsoftedge.microsoft.com/addons/detail/dynamic-assist/mnfokldcehmjefajddlheodgfekhmkhe",
     source: "https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon",
-    help: "https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon",
+    help: "https://dynamicassist.err403.com/docs/companion-app/",
+    site: "https://dynamicassist.err403.com/",
+    feedback: "https://dynamicassist.err403.com/feedback/?product=companion",
   }
 
   var TAG = "dynamic-assist"
@@ -496,9 +498,13 @@
     storeButton("Chrome Web Store", "For Google Chrome", LINKS.chrome) +
     storeButton("Microsoft Edge Add-ons", "For Microsoft Edge", LINKS.edge) +
     "</div>" +
-    '<p class="da-muted">Free and open source. <a target="_blank" rel="noopener" href="' +
+    '<p class="da-muted">Free and open source. Docs on the <a target="_blank" rel="noopener" href="' +
+    LINKS.site +
+    '">website</a>, <a target="_blank" rel="noopener" href="' +
     LINKS.source +
-    '">Source code on GitHub</a>.</p>' +
+    '">source code on GitHub</a>. Ideas or problems? Use the <a target="_blank" rel="noopener" href="' +
+    LINKS.feedback +
+    '">feedback page</a>.</p>' +
     "</section>" +
     '<section class="da-card">' +
     "<h2>Safe by design</h2>" +

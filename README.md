@@ -4,6 +4,9 @@ The Business Central app that goes with the [Dynamic Assist](https://github.com/
 
 A small Business Central extension that lets the Dynamic Assist browser extension's query builder read any table, the way it does in Dynamics 365.
 
+- **Docs:** the [companion app page](https://dynamicassist.err403.com/docs/companion-app/) on the Dynamic Assist website
+- **Ideas and problems:** the [feedback page](https://dynamicassist.err403.com/feedback/?product=companion), or an [issue](https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon/issues) here
+
 Business Central has no API for reading an arbitrary table: the standard APIs only cover API pages and queries. This app adds one page, **Dynamic Assist Query**, that answers the query builder from inside your own web client session.
 
 ## What it does and doesn't do
@@ -63,8 +66,8 @@ To update, upload the newer file the same way. Data (the query log) is kept.
 This repository uses [AL-Go for GitHub](https://github.com/microsoft/AL-Go) (the per-tenant extension template). Its settings are in [.AL-Go/settings.json](.AL-Go/settings.json):
 
 - **CI/CD** runs on every push to `main`, `release/*` and `feature/*`, and on pull requests. It compiles without a container (`useCompilerFolder`), with **CodeCop**, **UICop** and **PerTenantExtensionCop** on, and fails on errors. The app is kept as the run's artifact.
-- **Versions** come from `app.json` for the first three parts and the CI/CD run number for the last (`versioningStrategy` 3): `2026.11.6.4`. Change the first three in `app.json`.
-- **Releases**: run **Actions → Create release**, pick the CI/CD build to release and give it a tag (for example `2026.11.6`). The release gets the app as a zip and generated notes, and becomes the latest release that the extension links to.
+- **Versions** come from `app.json` for the first three parts and the CI/CD run number for the last (`versioningStrategy` 3): `2026.11.15.5`. Change the first three in `app.json`.
+- **Releases**: run **Actions → Create release**, pick the CI/CD build to release and give it a tag (for example `2026.11.15`). The release gets the app as a zip and generated notes, and becomes the latest release that the extension links to.
 - **Update AL-Go System Files** brings in Microsoft's newer AL-Go workflows.
 
 There are no tests yet (`doNotRunTests`), so builds don't need a Business Central container.
