@@ -1,6 +1,6 @@
 # Dynamic Assist Companion (Business Central)
 
-The Business Central app that goes with the [Dynamic Assist](https://github.com/garethcheyne/Dynamic-Assist) browser extension (Chrome and Edge). The app's source is in [DynamicAssistCompanion](DynamicAssistCompanion).
+The Business Central app that goes with the [Dynamic Assist](https://github.com/garethcheyne/Dynamic-Assist) browser extension, available from the [Chrome Web Store](https://chromewebstore.google.com/detail/dynamic-assist/kdjmihadioacnbabibfljbpbkclcjhbf) and [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/dynamic-assist/mnfokldcehmjefajddlheodgfekhmkhe). The app's source is in [DynamicAssistCompanion](DynamicAssistCompanion).
 
 A small Business Central extension that lets the Dynamic Assist browser extension's query builder read any table, the way it does in Dynamics 365.
 
@@ -41,13 +41,14 @@ SUPER includes both. A service calling the REST endpoints needs `DA QUERY` on it
 
 ## Install
 
-You need permission to manage extensions in the environment (for example **D365 EXTENSION MGT** or **SUPER**). Try it in a sandbox first.
+It's a per-tenant extension: install it in each environment where you want to query. Try it in a sandbox first.
 
 1. From the [latest release](https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon/releases/latest), download the **Apps** zip and unzip it. It holds the `.app` file.
-2. In Business Central, search for **Extension Management**, then choose **Manage** → **Upload Extension**.
-3. Pick the `.app` file, leave **Deploy to** on **Current version**, accept the terms and choose **Deploy**.
-4. Check progress under **Manage** → **Deployment Status**. It's done when the app shows as installed on the Extension Management page.
-5. Give users the **DA QUERY** permission set, alongside their normal permissions: open **Users**, pick a user and add it under **User Permission Sets** (or add it to a security group's permissions). Give admins **DA QUERY ADMIN** too, to read and clear the query log.
+2. Upload the `.app` file in either of these places:
+   - **The Business Central admin center** (Microsoft's recommended way, for admins of the admin center): open the environment, go to **Apps**, choose **Install Extension**, pick the file, choose to install it **immediately**, accept the terms and confirm. Progress shows on the **Operations** page.
+   - **Extension Management** in the environment (needs the **EXTEN. MGT. - ADMIN** permission set, or **SUPER**): choose **Manage** → **Upload Extension**, pick the file, leave **Deploy to** on **Current version**, accept the terms and choose **Deploy**. Progress shows under **Manage** → **Deployment Status**. Microsoft plans to remove this upload in 2027 release wave 1.
+3. It's done when **Dynamic Assist Companion** shows as installed on the Extension Management page.
+4. Give users the **DA QUERY** permission set, alongside their normal permissions: open **Users**, pick a user and add it under **User Permission Sets** (or add it to a security group's permissions). Give admins **DA QUERY ADMIN** too, to read and clear the query log.
 
 To update, upload the newer file the same way. Data (the query log) is kept.
 
@@ -57,14 +58,13 @@ To update, upload the newer file the same way. Data (the query log) is kept.
 2. In `DynamicAssistCompanion`, copy `.vscode/launch.example.json` to `.vscode/launch.json` and fill in your sandbox's name and tenant.
 3. **AL: Download Symbols**, then **F5** (or **Ctrl+F5**) to publish to the sandbox.
 
-
 ### Builds and releases
 
 This repository uses [AL-Go for GitHub](https://github.com/microsoft/AL-Go) (the per-tenant extension template). Its settings are in [.AL-Go/settings.json](.AL-Go/settings.json):
 
 - **CI/CD** runs on every push to `main`, `release/*` and `feature/*`, and on pull requests. It compiles without a container (`useCompilerFolder`), with **CodeCop**, **UICop** and **PerTenantExtensionCop** on, and fails on errors. The app is kept as the run's artifact.
-- **Versions** come from `app.json` for the first three parts and the CI/CD run number for the last (`versioningStrategy` 3): `2026.9.30.57`. Change the first three in `app.json`.
-- **Releases**: run **Actions → Create release**, pick the CI/CD build to release and give it a tag (for example `2026.9.30`). The release gets the app as a zip and generated notes, and becomes the latest release that the extension links to.
+- **Versions** come from `app.json` for the first three parts and the CI/CD run number for the last (`versioningStrategy` 3): `2026.11.6.4`. Change the first three in `app.json`.
+- **Releases**: run **Actions → Create release**, pick the CI/CD build to release and give it a tag (for example `2026.11.6`). The release gets the app as a zip and generated notes, and becomes the latest release that the extension links to.
 - **Update AL-Go System Files** brings in Microsoft's newer AL-Go workflows.
 
 There are no tests yet (`doNotRunTests`), so builds don't need a Business Central container.
@@ -72,6 +72,8 @@ There are no tests yet (`doNotRunTests`), so builds don't need a Business Centra
 ## Use
 
 In the Dynamic Assist side panel on Business Central, click the database icon in the environment bar, or **Query this table** on the Page tab. The builder opens over the page you're on and reaches the companion through a tab on the **Dynamic Assist Query** page of the same environment and company, opening one in the background the first time. Opening that page yourself (Alt+Q, "Dynamic Assist Query") also opens the builder over it.
+
+Keep that tab open: the extension can only reach the companion through it. If you close it, the extension opens it again when it's next needed, and that query takes a little longer.
 
 ## Couplings (Dataverse integration records)
 
@@ -129,10 +131,6 @@ GET https://api.businesscentral.dynamics.com/v2.0/{tenant}/{environment}/api/err
 
 Each result row is an entity: `rowNo`, and `data`, the record as JSON text. The GET endpoint is on only while the `DAQuery` web service is published, so one switch controls both.
 
-## Query log
-
-Every query, from the query builder or either REST endpoint, is logged in **Dynamic Assist Query Log** (search for it, or **Query Log** on the Dynamic Assist Query page): who ran it, the channel, the company, the table, the request, rows returned, duration, and the error if it failed. Failed calls are logged too. Users can only add entries; reading and clearing the log takes **DA QUERY ADMIN**. **Delete Entries Older Than 30 Days** keeps it small.
-
 - Tables and fields go **by name or number**. A wrong one is an error that says so: `Table Customer has no field "Nmae".`
 - Filters use Business Central's syntax, exactly as in the builder.
 - A join needs only the lookup field; the related table and key come from its table relation (give `table` and `key` to override). `inner: true`, or any filter on the related table, keeps only rows with a match.
@@ -140,6 +138,10 @@ Every query, from the query builder or either REST endpoint, is logged in **Dyna
 - **Explore first:** `method` can also be `tables` (add `"search": "ledger entry"` to narrow it), `describe` (with `table`: fields, keys, the lookups you can join through with their table and key, whether you can read it, and the APIs already installed for it), `fields`, `apis` or `info`. They work over GET and POST, so anyone with a token can find out what they can query.
 - **Joins match on the lookup's table relation.** A relation that depends on another field (Sales Line `No.` is an Item, G/L Account or Resource depending on `Type`) needs `"table"` and `"key"` given. A related table whose key has several fields (Dimension Value: Dimension Code + Code) is matched on the relation's field only; `describe` notes it.
 - It runs **as the caller, read-only**: their permissions and security filters apply, to joined tables too. A service principal needs `DA QUERY` plus read permission on the tables it queries.
+
+## Query log
+
+Every query, from the query builder or either REST endpoint, is logged in **Dynamic Assist Query Log** (search for it, or **Query Log** on the Dynamic Assist Query page): who ran it, the channel, the company, the table, the request, rows returned, duration, and the error if it failed. Failed calls are logged too. Users can only add entries; reading and clearing the log takes **DA QUERY ADMIN**. **Delete Entries Older Than 30 Days** keeps it small.
 
 ## How the bridge works
 

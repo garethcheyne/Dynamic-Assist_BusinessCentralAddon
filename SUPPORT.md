@@ -1,11 +1,17 @@
 # Support
 
-## How to file issues and get help
+## Installing and using it
 
-This GitHub repo is auto-generated from https://github.com/microsoft/AL-Go. Issues, bug tracking and feature requests should be done there.
+The [README](README.md) covers installing the companion, the permission sets users need, and its REST endpoints. The [Dynamic Assist](https://github.com/garethcheyne/Dynamic-Assist) repository covers the browser extension that uses it.
 
-Please follow the documentation [here](https://github.com/microsoft/AL-Go/blob/main/Scenarios/Contribute.md) if you want to contribute to AL-Go for GitHub.
+## Problems and ideas
 
-## Microsoft Support Policy
+[Open an issue](https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon/issues) with:
 
-Support for this **PROJECT or PRODUCT** is limited to the resources listed above.
+- the companion version, from Extension Management
+- the Business Central version, from **Help & Support**
+- what you did, what you expected, and what happened, including any error message
+
+For a security problem, follow [SECURITY.md](SECURITY.md) instead.
+
+This is an independent project, maintained in spare time. It isn't supported by Microsoft.
