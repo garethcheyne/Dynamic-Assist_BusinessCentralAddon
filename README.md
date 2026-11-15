@@ -46,7 +46,7 @@ SUPER includes both. A service calling the REST endpoints needs `DA QUERY` on it
 
 It's a per-tenant extension: install it in each environment where you want to query. Try it in a sandbox first.
 
-1. From the [latest release](https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon/releases/latest), download the **Apps** zip and unzip it. It holds the `.app` file.
+1. Download [DynamicAssistCompanion.app](https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon/releases/latest/download/DynamicAssistCompanion.app), the latest release. (The release also has it under its versioned name, and AL-Go's zip of the build.)
 2. Upload the `.app` file in either of these places:
    - **The Business Central admin center** (Microsoft's recommended way, for admins of the admin center): open the environment, go to **Apps**, choose **Install Extension**, pick the file, choose to install it **immediately**, accept the terms and confirm. Progress shows on the **Operations** page.
    - **Extension Management** in the environment (needs the **EXTEN. MGT. - ADMIN** permission set, or **SUPER**): choose **Manage** → **Upload Extension**, pick the file, leave **Deploy to** on **Current version**, accept the terms and choose **Deploy**. Progress shows under **Manage** → **Deployment Status**. Microsoft plans to remove this upload in 2027 release wave 1.
@@ -67,7 +67,7 @@ This repository uses [AL-Go for GitHub](https://github.com/microsoft/AL-Go) (the
 
 - **CI/CD** runs on every push to `main`, `release/*` and `feature/*`, and on pull requests. It compiles without a container (`useCompilerFolder`), with **CodeCop**, **UICop** and **PerTenantExtensionCop** on, and fails on errors. The app is kept as the run's artifact.
 - **Versions** come from `app.json` for the first three parts and the CI/CD run number for the last (`versioningStrategy` 3): `2026.11.15.5`. Change the first three in `app.json`.
-- **Releases**: run **Actions → Create release**, pick the CI/CD build to release and give it a tag (for example `2026.11.15`). The release gets the app as a zip and generated notes, and becomes the latest release that the extension links to.
+- **Releases**: run **Actions → Create release**, pick the CI/CD build to release and give it a tag (for example `2026.11.15`). The release gets the app as a zip and generated notes, and becomes the latest release that the extension links to. When it finishes, **Attach the .app to the release** (`.github/workflows/AttachApp.yaml`, ours, not AL-Go's) unzips the build and attaches the `.app` itself, under its own name and as `DynamicAssistCompanion.app`, which the extension, the website and this README link to. Run it by hand with a tag to attach the `.app` to an earlier release.
 - **Update AL-Go System Files** brings in Microsoft's newer AL-Go workflows.
 
 There are no tests yet (`doNotRunTests`), so builds don't need a Business Central container.
