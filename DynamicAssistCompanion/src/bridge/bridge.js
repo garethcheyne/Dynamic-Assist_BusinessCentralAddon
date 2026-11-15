@@ -16,11 +16,11 @@
 ;(function () {
   "use strict"
 
-  // Store listings: fill these in once the extension is published. An empty
-  // link shows as "Coming soon".
+  // Store listings. An empty link shows as "Coming soon".
   var LINKS = {
-    chrome: "",
-    edge: "",
+    chrome:
+      "https://chromewebstore.google.com/detail/dynamic-assist/kdjmihadioacnbabibfljbpbkclcjhbf",
+    edge: "https://microsoftedge.microsoft.com/addons/detail/dynamic-assist/mnfokldcehmjefajddlheodgfekhmkhe",
     source: "https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon",
     help: "https://github.com/garethcheyne/Dynamic-Assist_BusinessCentralAddon",
   }
@@ -189,8 +189,8 @@
     connected = true
     setStatus(
       "ok",
-      "Dynamic Assist is connected",
-      "The query builder opens over this page. Close it any time, and open it again from the Business Central side panel."
+      "Dynamic Assist is connected. Keep this tab open.",
+      "Dynamic Assist talks to Business Central through this page. If you close it, the extension opens it again when it's next needed, and that query takes a little longer. The query builder opens over this page: close the builder any time, and open it again from the side panel."
     )
   }
 

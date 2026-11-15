@@ -1,12 +1,15 @@
 /// <summary>
 /// Hosts the bridge, and explains itself. Open it (search "Dynamic Assist
 /// Query") and the Dynamic Assist extension's query builder opens over it;
-/// without the extension, it says where to get it.
+/// without the extension, it says where to get it. The extension can only reach
+/// AL while this page is open, so it's a full page and not a dialog: a dialog's
+/// OK and Cancel close it, block the page behind it, and BC drops its number
+/// from the URL.
 /// </summary>
 page 77500 "DA Query"
 {
     Caption = 'Dynamic Assist Query';
-    PageType = StandardDialog;
+    PageType = Card;
     ApplicationArea = All;
     UsageCategory = Tasks;
     Editable = false;
